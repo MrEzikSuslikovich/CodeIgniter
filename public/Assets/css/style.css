@@ -3,16 +3,16 @@
     font-style: normal;
     font-weight: 500;
     src: local('Lato Regular'), local('Lato-Regular'),
-         url('../fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/lato-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('/Assets/fonts/lato-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/Assets/fonts/lato-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   @font-face {
     font-family: 'Georgia';
     font-style: normal;
     font-weight: 600;
     src: local('Georgia'), local('Georgia'),
-    url('../fonts/georgia.ttf') format('ttf'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/georgia.ttf') format('ttf'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('/Assets/fonts/georgia.ttf') format('ttf'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('/Assets/fonts/georgia.ttf') format('ttf'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   a,p{
     font-family: Lato;
@@ -48,5 +48,6 @@
     background-size: 100%;
     padding-top: 170px;
     padding-bottom: 470px;
-    background: linear-gradient(to bottom right, #FFFFFF 0%, transparent 90%),url(../img/svg/raduedited.PNG) no-repeat  bottom;
+    background: linear-gradient(to bottom right, #FFFFFF 0%, transparent 90%),url(/Assets/img/svg/raduedited.PNG) no-repeat  bottom;
   }
+  

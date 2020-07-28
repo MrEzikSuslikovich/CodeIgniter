@@ -5,16 +5,16 @@
 	<meta name="viewport" content="width=device-width ">
 	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="<?php  echo base_url(); ?> /assets/mobile.css"/>
-	<link rel="stylesheet" media="screen and (min-width: 600px)" href="<?php  echo base_url(); ?> /assets/computer.css"/>
-	<link rel="stylesheet" href="http://localhost:8080/assets/style.css"/>
+	<link rel="stylesheet" media="screen and (max-width: 600px)" href="/Assets/css/mobile.css"/>
+	<link rel="stylesheet" media="screen and (min-width: 600px)" href="/Assets/css/computer.css"/>
+	<link rel="stylesheet" href="/Assets/css/style.css"/>
 </head>
 <body>
 	<header>
   		<nav class="navbar navbar-expand-md fixed-top border-bottom bg-white ">
   			<div class="container-xl">
 	  				<a href="/" class="navbar-brand">
-						<img src=".\img\svg\Logo.PNG">
+						<img src="/Assets/img/svg/Logo.PNG">
 					</a>
 		    	<button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 		      		<span class="navbar-toggler-icon green"></span>

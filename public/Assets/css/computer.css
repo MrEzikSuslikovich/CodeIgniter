@@ -3,7 +3,7 @@
     background-size: 100%;
     padding-top: 170px;
     padding-bottom: 470px;
-    background: linear-gradient(to bottom right, #FFFFFF 0%, transparent 90%),url(../img/svg/raduedited.PNG) no-repeat  bottom;
+    background: linear-gradient(to bottom right, #FFFFFF 0%, transparent 90%),url(/Assets/img/svg/raduedited.PNG) no-repeat  bottom;
   }
   h2{
     font-size: 53px;
@@ -28,4 +28,8 @@
   }
   .colored{
     font-size: 150px;
+  }
+  .video{
+    width: 130%;
+    height: 110%;
   }
