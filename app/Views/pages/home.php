@@ -55,7 +55,7 @@
 					        <button class="btn btn-success">Let’s get started</button>
 				      </div>
 				      <div class="col-md-5  pt-3">
-				        	<iframe style="border-radius: 16.3326px;" class="video" height="130%" width="120%" src="https://www.youtube.com/embed/k2WgWaByuL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+				        	<iframe style="border-radius: 16.3326px;" class="video" src="https://www.youtube.com/embed/k2WgWaByuL8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 				      </div>
 	    			</div>
 	    		</div>
