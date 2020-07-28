@@ -25,19 +25,19 @@
 			</section>
 			<section>
 				<div class="row pb-xl-5">
-	      			<div class="position-relative col-lg-4 pb-5">
+	      			<div class="position-relative col-lg-4 pb-5 mb-5">
 	        			<h2 class="position-relative  colored text-lg-left ">01</h2>
 	        			<p class="position-relative  moved text-lg-left zindex-dropdown">Personalize</p>
 	        				<p>Answer a quick survey about how you express yourself, what causes you stress, and what area would you like to work on. This way, we can fully personalize your journal!</p>
 	        			<img class="img-thumbnail" src="/Assets/img/svg/Rectangle1.PNG">	
 	      			</div>
-	      			<div class="position-relative col-lg-4 pb-5">
+	      			<div class="position-relative col-lg-4 pb-5 mt-5">
 	        			<h2 class="position-relative colored text-lg-left pt-xl-5">02</h2>
 	        			<p class="position-relative moved text-lg-left">Write & Understand</p>
 	        				<p>Write, draw, reflect, understand. Alivio will guide you through the prompts and will help you manage your stress!</p>
 	        			<img class="img-thumbnail" src="/Assets/img/svg/Rectangle2.PNG">	
 	      			</div>
-	      			<div class="position-relative col-lg-4 pb-5">
+	      			<div class="position-relative col-lg-4 pb-5 mt-4">
 	        			<h2 class="position-relative colored text-lg-left pt-xl-2">03</h2>
 	        			<p class="position-relative moved text-lg-left">Alivio!</p>
 	        				<p>Now you are aware, and have a way to manage and overcome your own stress.What are you waiting for? Alivio today!</p>
