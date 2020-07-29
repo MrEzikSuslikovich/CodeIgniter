@@ -36,10 +36,48 @@
 					</ul>
 				    <form class="form-inline mt-2 mt-md-0">
 				        <a  class="nav-link text-dark" href="#">Sign in</a>
-						<button class="btn  btn-success">Start Trial</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Start Trial</button>
 		      		</form>
 		    	</div>
   			</div>
   		</nav>
 	</header>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Start Trial</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body ">
+					<div class="input-group mb-3 d-flex flex-column">
+						<form method="POST" action="" id="modal_form">
+							<div class="p-2">
+								<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+								<input required name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							</div>
+							<br>
+							<div class="d-flex justify-content-start">
+								<span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
+								<span class="input-group-text" id="inputGroup-sizing-default">+7</span>
+								<select name="provider" class="custom-select" id="inputGroupSelect01">
+									<option value="777">777</option>
+									<option value="707">707</option>
+								</select>
+								<input required  name="phonenumber" autocomplete="off"  minlength="7" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+							</div>
+						</form>
+						<div id="result">
+						</div>	
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_confirm">Send</button>
+				</div>
+			</div>
+  		</div>
+	</div>
     <main class="main">
