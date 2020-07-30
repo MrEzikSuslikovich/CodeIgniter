@@ -1,12 +1,17 @@
-
 <?php
+mb_internal_encoding("UTF-8");
+if (isset($_POST["name"]) && isset($_POST["phonenumber"])) {
+    if(empty($_POST['name']) or empty($_POST['phonenumber']) or (strlen($_POST['phonenumber'])<7)){
+        echo ('Сheck the entered data');
+    }
+    else{
 
-if (isset($_POST["name"]) && isset($_POST["phonenumber"]) && isset($_POST["provider"])) {
-    $title="Добрый день".$_POST["name"]; 
-    $phonenumber="Мы перезвоним вам по этому номеру: \n"."+7".$_POST["provider"].$_POST["phonenumber"];
-    $title= iconv('cp1251', 'UTF-8', $title); 
-    $phonenumber = iconv('cp1251', 'UTF-8', $phonenumber); 
-    mail("glebfaizov@gmail.com", $title, $phonenumber ); 
+
+        $title=''.$_POST["name"].'';
+        $title= strval($title);
+ 
+        mail("gleb.faizov.87@mail.ru", $title, $_POST["phonenumber"]); 
+        echo("We will call you back later!");
+    }   
 }
-
 ?>

@@ -52,25 +52,22 @@
 					</button>
 				</div>
 				<div class="modal-body ">
-					<div class="input-group mb-3 d-flex flex-column">
-						<form method="POST" action="" id="modal_form">
-							<div class="p-2">
-								<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-								<input required name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-							</div>
-							<br>
-							<div class="d-flex justify-content-start">
-								<span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
-								<span class="input-group-text" id="inputGroup-sizing-default">+7</span>
-								<select name="provider" class="custom-select" id="inputGroupSelect01">
-									<option value="777">777</option>
-									<option value="707">707</option>
-								</select>
-								<input required  name="phonenumber" autocomplete="off"  minlength="7" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-							</div>
-						</form>
-						<div id="result">
-						</div>	
+					<div class="mt-3" id="result">
+						<div class="input-group mb-3 d-flex flex-column">
+							<form method="POST" action="" id="modal_form">
+								<div class="p-2">
+									<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+									<input required name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+								</div>
+								<br>
+								<div class="d-flex justify-content-start">
+									<span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
+									<input  name="phonenumber" value="" class="tel">
+								</div>
+							</form>
+							<div class="mt-3" id="error">
+							</div>		
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">

@@ -4,7 +4,7 @@ $( document ).ready(function() {
             modalAjax('result', 'modal_form', '/Assets/php/modal_controler.php');
 			return false; 
 		}
-	);
+    );
 });
 
 function modalAjax(result_form, ajax_form, url) {
@@ -14,10 +14,17 @@ function modalAjax(result_form, ajax_form, url) {
         dataType: "html", //формат данных
         data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
         success: function(response) { //Данные отправлены успешно
-        	$('#result').html("Success!");
+            if(response=="Сheck the entered data"){
+                $('#error').html('Сheck the entered data');
+            }
+            else{
+                $('#result').html(response);
+                $("#modal_confirm").addClass("d-none");
+            }
+        	
     	},
     	error: function(response) { // Данные не отправлены
-            $('#result').html('Ошибка. Данные не отправлены.');
+            $('#error').html('Error!');
     	}
  	});
 }
