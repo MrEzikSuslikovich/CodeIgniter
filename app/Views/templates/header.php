@@ -56,13 +56,11 @@
 						<div class="input-group mb-3 d-flex flex-column">
 							<form method="POST" action="" id="modal_form">
 								<div class="p-2">
-									<span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-									<input required name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+									<input autocomplete="off" placeholder="Name"  name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 								</div>
 								<br>
-								<div class="d-flex justify-content-start">
-									<span class="input-group-text" id="inputGroup-sizing-default">Phone</span>
-									<input  name="phonenumber" value="" class="tel">
+								<div class="p-2">
+									<input autocomplete="off" placeholder="Phone"  name="phonenumber" value="" class=" form-control tel">
 								</div>
 							</form>
 							<div class="mt-3" id="error">
