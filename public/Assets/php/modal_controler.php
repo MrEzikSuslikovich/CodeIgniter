@@ -18,7 +18,6 @@ if (isset($_POST["name"]) && isset($_POST["phonenumber"])) {
         $email->setMessage('Testing the email class.');
 
         $email->send();
-        echo("We will call you back later!");
     }   
 }
 ?>
