@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     $("#modal_confirm").click(
 		function(){ 
-            modalAjax('result', 'modal_form', '/Assets/php/modal_controler.php');
+            modalAjax('result', 'modal_form', '/show');
 			return false; 
 		}
     );

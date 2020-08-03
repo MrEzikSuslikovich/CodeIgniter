@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 
 //$routes->get('/', 'Pages::showme');
 $routes->get('/', 'Pages::showme');
-$routes->get('/show', 'Email::email');
+$routes->post('/show', 'Email::email');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
