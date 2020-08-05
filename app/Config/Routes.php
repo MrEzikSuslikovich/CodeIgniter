@@ -9,7 +9,6 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
 {
 	require SYSTEMPATH . 'Config/Routes.php';
 }
-
 /**
  * --------------------------------------------------------------------
  * Router Setup
@@ -32,9 +31,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-//$routes->get('/', 'Pages::showme');
 $routes->get('/', 'Pages::showme');
-$routes->post('/show', 'Email::email');
+$routes->post('/StartTrialSend', 'Mailer::StartTrialSend');
+$routes->get('/Send', 'Mailer::StartTrialSend');
+$routes->get('/index/form', 'Form::index');
+$routes->post('/signup', 'Form::send');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
