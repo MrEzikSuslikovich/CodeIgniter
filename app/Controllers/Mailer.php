@@ -3,7 +3,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
  
 class Mailer extends Controller {
-    private function MailConfigurator() {
+    function __construct(){
         $email = \Config\Services::email();
         $email->setFrom('T9785fec61881@yandex.kz',"Alivio");
         $email->setTo('T9785fec61881@yandex.kz');
@@ -11,13 +11,19 @@ class Mailer extends Controller {
     }
     public function StartTrialSend()
     {   
-        $this->MailConfigurator();
-        $email = \Config\Services::email();
-        $email->setSubject('Email Test');
-        $email->setMessage("Номер: ".$_POST['phonenumber']."   Имя: ".$_POST['name']);
-        $email->send();
-        $email->printDebugger(['headers']);
-        echo ('We will call you later!');
+        if ($this->request->isAJAX())
+        {
+            $email = \Config\Services::email();
+            $email->setSubject('Email Test');
+            $email->setMessage("Номер: ".$this->request->getVar('phonenumber')."   Имя: ".$this->request->getVar('name'));
+            $email->send();
+            $email->printDebugger(['headers']);
+            echo ('We will call you later!');
+        }
+        else{
+            echo("Not valid form");
+        }
+       
     }
 
 }

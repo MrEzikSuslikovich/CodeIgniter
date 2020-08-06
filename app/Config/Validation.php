@@ -29,7 +29,7 @@ class Validation
 		'list'   => 'CodeIgniter\Validation\Views\list',
 		'single' => 'CodeIgniter\Validation\Views\single',
 	];
-
+	
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------

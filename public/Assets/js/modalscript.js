@@ -1,23 +1,21 @@
 $( document ).ready(function() {
     $("#modal_confirm").click(
 		function(){
-            var phone=$("#phoneinput").val();
-            if($("#nameinput").val()=="" || phone=="" || phone.length<17){
+            if($("#nameinput").val()=="" || ($("#phoneinput").val()).length<17){
                 $('#error').html('Сheck the entered data');
             } 
             else{
-                modalAjax('result', 'modal_form', '/StartTrialSend');
+                modalAjax('modal_form', '/Send');
             }
-            return false;
-           
+            return false;        
 		}
     );
 });
 
-function modalAjax(result_form, ajax_form, url) {
+function modalAjax(ajax_form, url) {
     $.ajax({
         url:     url, //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
+        headers: {'X-Requested-With': 'XMLHttpRequest'},
         dataType: "html", //формат данных
         data: $("#"+ajax_form).serialize(),  // Сеарилизуем объект
         success: function(response) { //Данные отправлены успешно

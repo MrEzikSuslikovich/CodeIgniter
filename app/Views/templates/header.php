@@ -54,7 +54,7 @@
 				<div class="modal-body ">
 					<div class="mt-3" id="result">
 						<div class="input-group mb-3 d-flex flex-column">
-							<form method="POST" id="modal_form">
+							<form id="modal_form">
 								<div class="p-2">
 									<input autocomplete="off" id="nameinput" placeholder="Name"  name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 								</div>

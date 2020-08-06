@@ -32,7 +32,6 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Pages::showme');
-$routes->post('/StartTrialSend', 'Mailer::StartTrialSend');
 $routes->get('/Send', 'Mailer::StartTrialSend');
 $routes->get('/index/form', 'Form::index');
 $routes->post('/signup', 'Form::send');
