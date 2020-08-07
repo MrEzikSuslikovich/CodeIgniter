@@ -9,11 +9,21 @@ use CodeIgniter\Controller;
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
- 
-        $data['title'] = ucfirst($page); // Capitalize the first letter
- 
+        helper(['form', 'url']);
+        $validation =  \Config\Services::validation();
+        $data['title'] = ucfirst($page);
         echo view('templates/header', $data);
         echo view('pages/'.$page, $data); 
         echo view('templates/footer', $data);
+        if (! $this->validate([]))
+        {
+            echo view('module/StartTrial', [
+                'validation' => $this->validator
+            ]);
+        }
+        else
+        {
+            echo view('Success');
+        }  
     }
 }

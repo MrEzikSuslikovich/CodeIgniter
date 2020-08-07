@@ -11,19 +11,12 @@ class Mailer extends Controller {
     }
     public function StartTrialSend()
     {   
-        if ($this->request->isAJAX())
-        {
             $email = \Config\Services::email();
             $email->setSubject('Email Test');
             $email->setMessage("Номер: ".$this->request->getVar('phonenumber')."   Имя: ".$this->request->getVar('name'));
             $email->send();
             $email->printDebugger(['headers']);
-            echo ('We will call you later!');
-        }
-        else{
-            echo("Not valid form");
-        }
-       
+            echo ('We will call you later!');     
     }
 
 }

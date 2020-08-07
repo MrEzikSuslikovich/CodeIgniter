@@ -1,4 +1,5 @@
-        <section class="bg position-relative ">
+<main class="main">  
+		<section class="bg position-relative ">
 			<div class="container-xl">
 				<div class="col-lg-5 row">
 					<h2>Be aware, Manage well.
