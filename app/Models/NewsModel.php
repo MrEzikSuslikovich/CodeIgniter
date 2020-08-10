@@ -5,15 +5,16 @@ use CodeIgniter\Model;
 class NewsModel extends Model
 {
     protected $table = 'news';
+    protected $allowedFields = ['title', 'slug', 'body','content'];
     public function getNews($slug = false)
     {
-    if ($slug === false)
-    {
-        return $this->findAll();
-    }
+        if ($slug === false)
+        {
+            return $this->findAll();
+        }
 
-    return $this->asArray()
-                ->where(['slug' => $slug])
-                ->first();
+        return $this->asArray()
+                    ->where(['slug' => $slug])
+                    ->first();
     }
 }
