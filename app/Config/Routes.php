@@ -34,14 +34,26 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::showme');
 $routes->post('/Send', 'Mailer::StartTrialSend');
 $routes->get('/index/form', 'Form::index');
-$routes->get('/news/create',"News::create");
 
+$routes->get('/news/create',"News::create");
+$routes->get('/news/update',"News::update");
+$routes->get('/news/delete',"News::delete");
+$routes->get('/news/admin',"News::admin");
+
+
+
+
+$routes->match(['get', 'post'], 'news/create', 'News::create');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
+$routes->match(['get', 'post'], 'news/update', 'News::update');
+$routes->get('news/(:segment)', 'News::view/$1');
+$routes->get('news', 'News::index');
+$routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], 'news/create', 'News::create');
+$routes->match(['get', 'post'], 'news/delete', 'News::delete');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
