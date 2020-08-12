@@ -7,16 +7,11 @@ class News extends Controller
 {
     public function index()
     {
+       
     $model = new NewsModel();
-    $pager = \Config\Services::pager();
     $data = [
-        'news'  => $model->paginate(3),
-        'title' => 'News archive',
-    ];
-    $link = [
-        'active' => false,
-        'uri'    => 'http://example.com/foo?page=2',
-        'title'  => 1
+        'news'  => $model->paginate(4,'group1'),
+        'pager' => $model->pager
     ];
     echo view('templates/header', $data);
     echo view('news/overview', $data);
@@ -98,8 +93,8 @@ class News extends Controller
         $model = new NewsModel();
     $pager = \Config\Services::pager();
     $data = [
-        'news'  => $model->getNews(),
-        'title' => 'News archive',
+        'news'  => $model->paginate(4),
+        'pager' => $model->pager
     ];
     echo view('admin/view', $data);
     }

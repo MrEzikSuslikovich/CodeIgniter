@@ -1,31 +1,34 @@
-<h2><?= esc($title); ?></h2>
-
-<?php if (! empty($news) && is_array($news)) : ?>
-    <?php foreach ($news as $news_item): ?>
-        <br>
-        <div class="shadow container-xl p-5">
-        <br>
-			<div class="row featurette">
-                <div class="col-md-6">
-                    <a href="/" class="navbar-brand">
-					    <img class='img-fluid' src=<?= esc($news_item['content']); ?> />
-				    </a>
+<h2>News</h2>
+<br>
+<div class="container">
+    <div class="row mt-5">
+            <?php if($news): ?>
+            <?php foreach($news as $inf): ?>
+            <div class="mh-100 col-md-5">
+                <div class="card mb-5 shadow">
+                        <a href="/" class="navbar-brand">
+                            <img class='bd-placeholder-img card-img-top' src=<?= esc($inf['content']); ?> />
+                        </a>
+                <div class="card-body">
+                    <h2 class="featurette-heading"><?= esc($inf['title']); ?></h2>
+                    <p><?= esc($inf['body']); ?></p>
                 </div>
-                <div class="col-md-6">
-                    <h2 class="featurette-heading"><?= esc($news_item['title']); ?></h2>
-                    <p><?= esc($news_item['body']); ?></p>
-                    <div class="main">
-                    </div>
                 </div>
-                
-		    </div>
-		</div>
+            </div>
+           <?php endforeach; ?>
+           <?php endif; ?>
         <br>
-    <?php endforeach; ?>
-<?php else : ?>
-
-    <h3>No News</h3>
-
-    <p>Unable to find any news for you.</p>
-
-<?php endif ?>
+        <div class="container">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between row">
+                <?php if ($pager) :?>
+                <?php $pagi_path='/pagination'; ?>
+                <?php $pager->setPath($pagi_path); ?>
+                <?= $pager->links('group1', 'front_full') ?>
+                <?php endif ?>        
+                </div> 
+            </div>
+        </div>
+    </div>
+  </div>
+</div> 

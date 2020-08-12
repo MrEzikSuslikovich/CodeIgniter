@@ -23,7 +23,7 @@ $routes->setAutoRoute(true);
 
 /**
  * --------------------------------------------------------------------
- * Route Definitions
+ * Route Definitions NewsPagination::index
  * --------------------------------------------------------------------
  */
 
@@ -35,6 +35,7 @@ $routes->get('/', 'Pages::showme');
 $routes->post('/Send', 'Mailer::StartTrialSend');
 $routes->get('/index/form', 'Form::index');
 
+$routes->get('/pagination',"News::index");
 $routes->get('/news/create',"News::create");
 $routes->get('/news/update',"News::update");
 $routes->get('/news/delete',"News::delete");

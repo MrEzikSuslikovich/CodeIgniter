@@ -37,3 +37,14 @@
     <p>Unable to find any news for you.</p>
 
 <?php endif ?>
+<div class="container">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between row">
+                <?php if ($pager) :?>
+                <?php $pagi_path='/news/admin'; ?>
+                <?php $pager->setPath($pagi_path); ?>
+                <?= $pager->links() ?>
+                <?php endif ?>        
+                </div> 
+            </div>
+        </div>
