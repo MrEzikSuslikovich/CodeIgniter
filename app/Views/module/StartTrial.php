@@ -25,6 +25,7 @@
 							</div>
 						</div>
 						<?= \Config\Services::validation()->listErrors(); ?>
+						<?= csrf_field() ?>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 							<input type="submit" value="Send" class="btn btn-primary" />

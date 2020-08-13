@@ -22,16 +22,22 @@ class News extends Controller
         $model = new NewsModel();
 
         if ($this->request->getMethod() === 'post' && $this->validate([
-                'title' => 'required|min_length[3]|max_length[255]',
-                'body'  => 'required'
-            ]))
-        {
-            $model->save([
-                'title' => $this->request->getPost('title'),
-                'body'  => $this->request->getPost('body'),
-                'content'  => $this->request->getPost('content'),
-            ]);
-
+            'title' => 'required|min_length[3]|max_length[255]',
+            'file' => [
+                'uploaded[file]',
+                'mime_in[file,image/jpg,image/jpeg,image/gif,image/png]',
+                'max_size[file,4096]',
+            ],
+            'body'  => 'required'
+        ]))
+    {
+        $avatar = $this->request->getFile('file');
+        $avatar->move("public\Assets\img\uploads");
+        $model->save([
+            'title' => $this->request->getPost('title'),
+            'body'  => $this->request->getPost('body'),
+            'content'  =>"\public\Assets\img\uploads/".$avatar->getClientName(),
+        ]);
             echo view('admin/success');
 
         }
@@ -47,14 +53,14 @@ class News extends Controller
         if ($this->request->getMethod() === 'post' && $this->validate([
                 'title' => 'required|min_length[3]|max_length[255]',
                 'id'  => 'required',
-                'content'  => 'required',
                 'body'  => 'required'
             ]))
         {
+            $avatar = $this->request->getFile('file');
             $data = [
                 'title' => $this->request->getPost('title'),
                 'body'  => $this->request->getPost('body'),
-                'content'  => $this->request->getPost('content')
+                'content'  =>"\public\Assets\img\uploads/".$this->request->getPost('file'),
             ];
             $id=$this->request->getPost('id');
             $model->where('id', $id);
@@ -67,7 +73,7 @@ class News extends Controller
             echo view('admin/update');
         }
     }
-    public function delete()
+     public function delete()
     {
         $model = new NewsModel();
 
@@ -93,7 +99,7 @@ class News extends Controller
         $model = new NewsModel();
     $pager = \Config\Services::pager();
     $data = [
-        'news'  => $model->paginate(4),
+        'news'  => $model->paginate(4,'group1'),
         'pager' => $model->pager
     ];
     echo view('admin/view', $data);

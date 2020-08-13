@@ -41,9 +41,6 @@ $routes->get('/news/update',"News::update");
 $routes->get('/news/delete',"News::delete");
 $routes->get('/news/admin',"News::admin");
 
-
-
-
 $routes->match(['get', 'post'], 'news/create', 'News::create');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');

@@ -1,8 +1,12 @@
-<h2><?= esc($title); ?></h2>
-
-<?= \Config\Services::validation()->listErrors(); ?>
-    <?= csrf_field() ?>
-    <div class="container">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Codeigniter 4 Image upload example</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ 
+</head>
+<body>
+ <div class="container">
     <br>
      
     <?php if (session('msg')) : ?>
@@ -36,3 +40,11 @@
     </div>
   
 </div>
+</body>
+</html>
+<?php if (session('msg')) : ?>
+     <div class="alert alert-info alert-dismissible">
+         <?= session('msg') ?>
+         <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+     </div>
+ <?php endif ?>

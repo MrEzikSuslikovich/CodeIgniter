@@ -53,4 +53,8 @@ html{
     padding-bottom: 470px;
     background: linear-gradient(to bottom right, #FFFFFF 0%, transparent 90%),url(/Assets/img/svg/raduedited.PNG) no-repeat  bottom;
   }
+  .news{
+    min-width: 445px;
+    min-height: 510px;
+  }
   

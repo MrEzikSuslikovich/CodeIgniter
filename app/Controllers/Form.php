@@ -8,16 +8,11 @@ class Form extends Controller
     {
         helper(['form', 'url']);
         $validation =  \Config\Services::validation();
-        /*
-        $validation->setRules([
-            'username' => ['label' => 'Username', 'rules' => 'required'],
-            'password' => ['label' => 'Password', 'rules' => 'required|min_length[10]']
-        ]);
-        $validation->withRequest($this->request)
-           ->run();
-        */
-        if (! $this->validate([]))
-        {
+        if ($this->request->getMethod() === 'post' && $this->validate([
+            'username' => 'required|min_length[3]|max_length[255]',
+            'password'  => 'required'
+        ]))
+    {
             echo view('Signup', [
                 'validation' => $this->validator
             ]);
