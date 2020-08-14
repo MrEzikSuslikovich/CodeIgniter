@@ -7,11 +7,10 @@ class News extends Controller
 {
     public function index()
     {
-       
     $model = new NewsModel();
     $data = [
         'news'  => $model->paginate(4,'group1'),
-        'pager' => $model->pager
+        'pager' => $model->pager,
     ];
     echo view('templates/header', $data);
     echo view('news/overview', $data);
@@ -20,7 +19,6 @@ class News extends Controller
     public function create()
     {
         $model = new NewsModel();
-
         if ($this->request->getMethod() === 'post' && $this->validate([
             'title' => 'required|min_length[3]|max_length[255]',
             'file' => [
@@ -30,7 +28,7 @@ class News extends Controller
             ],
             'body'  => 'required'
         ]))
-    {
+    {   
         $avatar = $this->request->getFile('file');
         $avatar->move("public\Assets\img\uploads");
         $model->save([
@@ -79,11 +77,6 @@ class News extends Controller
 
         if ($this->request->getMethod() === 'post' )
         {
-            $data = [
-                'title' => "tororo",
-                'slug'  => "tororo",
-                'body'  => "tororo"
-            ];
             $id=$this->request->getPost('id');
             $model->delete(['id' => $id]);
             echo view('admin/success');
@@ -96,12 +89,21 @@ class News extends Controller
     }
     public function admin()
     {
+    $session = session();
+    if($session->get('logged_in')=="TRUE"){
         $model = new NewsModel();
-    $pager = \Config\Services::pager();
-    $data = [
+        $pager = \Config\Services::pager();
+        $data = [
         'news'  => $model->paginate(4,'group1'),
         'pager' => $model->pager
-    ];
-    echo view('admin/view', $data);
+        ];
+        echo view('admin/view', $data);
+    }
+    elseif ($session->get('logged_in')=="FALSE" or empty($session->get('logged_in'))) {
+        return redirect()->to('http://localhost:8080/login');
+    }
+    }
+    public function logincheck(){
+
     }
 }

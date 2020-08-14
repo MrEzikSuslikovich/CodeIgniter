@@ -12,6 +12,13 @@
 
    }
   </style>
+<?php
+$session = session();
+?>
+<h1>Admin Panel</h1>
+<form action="/logout" method="">
+<input type="submit" value="Logout">
+</form>
 <?php if (! empty($news) && is_array($news)) : ?>
     <?php foreach ($news as $news_item): ?>
     <nav class="navbar navbar-expand navbar-dark jumbotron">
