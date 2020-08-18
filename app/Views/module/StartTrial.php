@@ -8,16 +8,16 @@
 					</button>
 				</div>
 
-				<?= form_open('/Send') ?>
+				<form action="/Send" method='post'>
 					<div class="modal-body ">
 						<div class="mt-3" id="result">
 							<div class="input-group mb-3 d-flex flex-column">
 									<div class="p-2">
-										<input autocomplete="off" required id="nameinput" placeholder="Name"  name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+										<input autocomplete="off" id="nameinput" placeholder="Name"  name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 									</div>
 									<br>
 									<div class="p-2">
-										<input autocomplete="off" required id="phoneinput"   minlength="17" placeholder="Phone"  name="phonenumber" value="" class=" form-control tel">
+										<input autocomplete="off"  id="phoneinput"  placeholder="Phone"  name="phonenumber" value="" class=" form-control tel">
 									</div>
 								</form>
 								<div class="mt-3" id="error">

@@ -6,11 +6,6 @@
     color: #333366;
     height: 200px;
    }
-   .rounded{
-       width:300px;
-    height: 200px;
-
-   }
   </style>
 <?php
 $session = session();
@@ -19,14 +14,49 @@ $session = session();
 <form action="/logout" method="">
 <input type="submit" value="Logout">
 </form>
+<?= \Config\Services::validation()->listErrors(); ?>
+    <?= csrf_field() ?>
+    <div class="container">
+    <br>
+     
+    <?php if (session('msg')) : ?>
+        <div class="alert alert-info alert-dismissible">
+            <?= session('msg') ?>
+            <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+        </div>
+    <?php endif ?>
+ 
+    <div class="row">
+      <div class="col-md-9">
+        <form action="/news/create" name="ajax_form" id="ajax_form" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        
+    <label for="title">Title</label>
+    <input type="input" name="title" /><br />
+
+    <label for="body">Text</label>
+    <textarea name="body"></textarea><br />
+          <div class="form-group">
+            <label for="formGroupExampleInput">Name</label>
+            <input type="file" name="file" class="form-control" id="file">
+          </div> 
+ 
+          <div class="form-group">
+           <button type="submit" id="send_form" class="btn btn-success">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+ 
+    </div>
+  
+</div>
 <?php if (! empty($news) && is_array($news)) : ?>
     <?php foreach ($news as $news_item): ?>
     <nav class="navbar navbar-expand navbar-dark jumbotron">
         <div class="collapse navbar-collapse" id="navbarsExample02">
-            <form action="/news/update" method="post">
+            <form action="/news/update" name="ajax_form" id="ajax_form" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+            <label for="id">id</label>
                 <div class="d-flex flex-row text-center bd-highlight mb-3">
-                    <?= csrf_field() ?>
-                    <label for="id">id</label>
                     <textarea disabled > <?= esc($news_item['id']); ?> </textarea>
                     <textarea name="id"  style="display:none"> <?= esc($news_item['id']); ?> </textarea>
                     <label for="title">Title</label>
@@ -35,11 +65,14 @@ $session = session();
                     <textarea class="form-control" name="body"> <?= esc($news_item['body']); ?> </textarea>
                     <label for="content">Content</label>
                     <a href="/" class="navbar-brand pt-5">
-                        <img class="rounded mx-auto d-block " src=<?= esc($news_item['content']); ?> />
+                        <img class="img-thumbnail rounded mx-auto d-block bd-placeholder-img card-img-top" src=<?= esc($news_item['content']); ?> />
                     </a>
                     <input type="file" name="file" class="form-control" id="file">
-                    <input type="submit" name="submit" value="Update" />
-                </div>
+                    <div class="form-group">
+                        <button type="submit" id="send_form" class="btn btn-success">Update</button>
+                    </div>
+                </div> 
+
             </form>
             <form action="/news/delete" method="post">
                     <?= csrf_field() ?>

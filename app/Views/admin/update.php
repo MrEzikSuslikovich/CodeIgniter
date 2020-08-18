@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <?= \Config\Services::validation()->listErrors(); ?>
 
-<form action="/news/update" method="post">
+<form action="/news/update" name="ajax_form" id="ajax_form" method="post" accept-charset="utf-8" enctype="multipart/form-data">
     <?= csrf_field() ?>
 
     <label for="id">id</label>
@@ -16,7 +16,7 @@
         <input type="file" name="file" class="form-control" id="file">
     </div> 
     <div class="form-group">
-        <button type="submit" id="send_form" class="btn btn-success">Submit</button>
+    <button type="submit" id="send_form" class="btn btn-success">Update</button>
     </div>
           
 </form>

@@ -15,15 +15,6 @@ use CodeIgniter\Controller;
         echo view('templates/header', $data);
         echo view('pages/'.$page, $data); 
         echo view('templates/footer', $data);
-        if (! $this->validate([]))
-        {
-            echo view('module/StartTrial', [
-                'validation' => $this->validator
-            ]);
-        }
-        else
-        {
-            echo view('Success');
+        echo view('module/StartTrial');
         }  
     }
-}

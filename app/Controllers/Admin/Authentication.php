@@ -1,4 +1,4 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Admin;
 
 use CodeIgniter\Controller;
 use App\Models\LoginModel;
@@ -17,12 +17,12 @@ class Authentication extends Controller
             $session = session();
             $session->set('logged_in', "FALSE");
 
-            $query = $db->query('SELECT name FROM users');
+            $query = $db->query('SELECT name,password FROM users');
             $results = $query->getResultArray();
 
             foreach ($results as $row)
             {
-                if($this->request->getPost('username') == $row['name'] ){
+                if($this->request->getPost('username') == $row['name'] && $this->request->getPost('password') == $row['password'] ){
                     $session->set('logged_in', "TRUE");
                     return redirect()->to('http://localhost:8080/admin');
                 }

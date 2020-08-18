@@ -30,7 +30,6 @@ $routes->setAutoRoute(true);
  
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
 $routes->get('/', 'Pages::showme');
 $routes->post('/Send', 'Mailer::StartTrialSend');
 $routes->get('/index/form', 'Form::index');
@@ -39,10 +38,10 @@ $routes->get('/news',"News::index");
 $routes->get('/news/create',"News::create");
 $routes->get('/news/update',"News::update");
 $routes->get('/news/delete',"News::delete");
-$routes->get('/admin',"News::admin");
-$routes->get('/login',"Authentication::login");
-$routes->get('/logout','Authentication::logout');
 
+$routes->get('/admin',"News::admin");
+$routes->get('/login',"Admin\Authentication::login");
+$routes->get('/logout','Admin\Authentication::logout');
 
 $routes->match(['get', 'post'], 'news/create', 'News::create');
 $routes->get('news/(:segment)', 'News::view/$1');
@@ -59,8 +58,8 @@ $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], '/login', 'Authentication::login');
-$routes->get('authentication/(:segment)', 'Authentication::view/$1');
+$routes->match(['get', 'post'], '/login', 'Admin\Authentication::login');
+$routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
 $routes->get('authentication', 'Authentication::index');
 $routes->get('(:any)', 'Pages::view/$1');
 

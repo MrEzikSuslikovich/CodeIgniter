@@ -27,7 +27,7 @@ $RECYCLE.BIN/
 *.jpeg
 *.png
 *.gif
-
+*.svg
 
 # Windows shortcuts
 *.lnk
