@@ -23,5 +23,6 @@
 	<script src="/Assets/js/jquery.maskedinput.js"></script>
 	<script src="/Assets/js/mask.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script type='text/javascript' src='/Assets/js/modalscript.js'></script>
 </body>
 </html>

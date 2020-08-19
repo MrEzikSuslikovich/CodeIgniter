@@ -1,20 +1,13 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Admin;
 
 use App\Models\NewsModel;
 use CodeIgniter\Controller;
+use App\Controllers\Admin\Authcheck;
 
-class News extends Controller
-{
-    public function index()
-    {
-    $model = new NewsModel();
-    $data = [
-        'news'  => $model->paginate(4,'group1'),
-        'pager' => $model->pager,
-    ];
-    echo view('templates/header', $data);
-    echo view('news/overview', $data);
-    echo view('templates/footer', $data);
+class AdminPanel extends Controller{
+    function __construct(){
+        $tests= new Authcheck();
+        $tests->check();
     }
     public function create()
     {
@@ -71,7 +64,6 @@ class News extends Controller
             $model->where('id', $id);
             $model->update(['id' => $id],$data);
             echo view('admin/success');
-
         }
         else
         {
@@ -96,8 +88,6 @@ class News extends Controller
     }
     public function admin()
     {
-    $session = session();
-    if($session->get('logged_in')=="TRUE"){
         $model = new NewsModel();
         $pager = \Config\Services::pager();
         $data = [
@@ -105,12 +95,9 @@ class News extends Controller
         'pager' => $model->pager
         ];
         echo view('admin/view', $data);
+        $tests= new Authcheck();
+        $tests->check();
+        
     }
-    elseif ($session->get('logged_in')=="FALSE" or empty($session->get('logged_in'))) {
-        return redirect()->to('http://localhost:8080/login');
-    }
-    }
-    public function logincheck(){
 
-    }
 }

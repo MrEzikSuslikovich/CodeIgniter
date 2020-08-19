@@ -16,7 +16,6 @@ class Authentication extends Controller
             
             $session = session();
             $session->set('logged_in', "FALSE");
-
             $query = $db->query('SELECT name,password FROM users');
             $results = $query->getResultArray();
 

@@ -31,29 +31,29 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::showme');
-$routes->post('/Send', 'Mailer::StartTrialSend');
 $routes->get('/index/form', 'Form::index');
 
-$routes->get('/news',"News::index");
-$routes->get('/news/create',"News::create");
-$routes->get('/news/update',"News::update");
-$routes->get('/news/delete',"News::delete");
+$routes->get('/news',"Pages::news");
+$routes->get('/news/create',"Admin\AdminPanel::create");
+$routes->get('/news/update',"Admin\AdminPanel::update");
+$routes->get('/news/delete',"Admin\AdminPanel::delete");
+$routes->get('/Send',"Mailer::StartTrialSend");
 
-$routes->get('/admin',"News::admin");
+$routes->get('/admin',"Admin\AdminPanel::admin");
 $routes->get('/login',"Admin\Authentication::login");
 $routes->get('/logout','Admin\Authentication::logout');
 
-$routes->match(['get', 'post'], 'news/create', 'News::create');
+$routes->match(['get', 'post'], 'news/create', 'Admin\AdminPanel::create');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], 'news/update', 'News::update');
+$routes->match(['get', 'post'], 'news/update', 'Admin\AdminPanel::update');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], 'news/delete', 'News::delete');
+$routes->match(['get', 'post'], 'news/delete', 'Admin\AdminPanel::delete');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');

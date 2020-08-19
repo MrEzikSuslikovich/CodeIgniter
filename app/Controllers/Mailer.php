@@ -9,13 +9,11 @@ class Mailer extends Controller {
         $email->setTo('T9785fec61881@yandex.kz');
         $email->setCC('T9785fec61881@yandex.kz');
     }
-    public function StartTrialSend()
-    {   
+    public function StartTrialSend(){
         if($this->validate([
             'name'=>'required',
             'phonenumber'=>'required|min_length[17]'
         ])){
-
             $email = \Config\Services::email();
             $email->setSubject('Email Test');
             $email->setMessage("Номер: ".$this->request->getVar('phonenumber')."   Имя: ".$this->request->getVar('name'));
@@ -24,6 +22,7 @@ class Mailer extends Controller {
             echo ('We will call you later!');  
         }
         else{
-            echo view('module/StartTrial');
-        }       
+            echo( \Config\Services::validation()->listErrors() );
+        }
     }
+}

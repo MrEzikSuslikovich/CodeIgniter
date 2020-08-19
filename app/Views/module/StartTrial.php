@@ -8,10 +8,10 @@
 					</button>
 				</div>
 
-				<form action="/Send" method='post'>
+				<form action="/Send" method='post' id="modal_form">
 					<div class="modal-body ">
-						<div class="mt-3" id="result">
-							<div class="input-group mb-3 d-flex flex-column">
+						<div class="mt-3">
+							<div class="input-group mb-3 d-flex flex-column" id='moduleform'>
 									<div class="p-2">
 										<input autocomplete="off" id="nameinput" placeholder="Name"  name="name" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 									</div>
@@ -20,15 +20,17 @@
 										<input autocomplete="off"  id="phoneinput"  placeholder="Phone"  name="phonenumber" value="" class=" form-control tel">
 									</div>
 								</form>
-								<div class="mt-3" id="error">
-								</div>		
+								<div class="p-2">
+									<div class="mt-3" id="result">
+									</div>
+								</div>
 							</div>
 						</div>
 						<?= \Config\Services::validation()->listErrors(); ?>
 						<?= csrf_field() ?>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<input type="submit" value="Send" class="btn btn-primary" />
+							<input type="button" id='modal_confirm' value="Send" class="btn btn-primary" />
 						</div>
 					</div>
 				</form>
