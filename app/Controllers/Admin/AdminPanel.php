@@ -16,7 +16,7 @@ class AdminPanel extends Controller{
             'title' => 'required|min_length[3]|max_length[255]',
             'file' => [
                 'uploaded[file]',
-                'mime_in[file,image/jpg,image/jpeg,image/gif,image/png,image/svg,image/JPG]',
+                'mime_in[file,image/jpg,image/jpeg,image/gif,image/png,image/svg,image/JPG]',   
                 'max_size[file,4096]',
             ],
             'body'  => 'required'
@@ -95,9 +95,6 @@ class AdminPanel extends Controller{
         'pager' => $model->pager
         ];
         echo view('admin/view', $data);
-        $tests= new Authcheck();
-        $tests->check();
-        
     }
 
 }

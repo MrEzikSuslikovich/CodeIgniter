@@ -12,4 +12,17 @@ class Authcheck extends Controller
             die;
         }
     }
+    public function admin()
+    {
+        $model = new NewsModel();
+        $pager = \Config\Services::pager();
+        $data = [
+        'news'  => $model->paginate(4,'group1'),
+        'pager' => $model->pager
+        ];
+        echo view('admin/view', $data);
+        $tests= new Authcheck();
+        $tests->check();
+        
+    }
 }
