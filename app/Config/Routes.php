@@ -23,7 +23,7 @@ $routes->setAutoRoute(true);
 
 /**
  * --------------------------------------------------------------------
- * Route Definitions NewsPagination::index
+ * Route Definitions NewsPagination::index 
  * --------------------------------------------------------------------
  */
 
@@ -33,27 +33,28 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::showme');
 $routes->get('/index/form', 'Form::index');
 
-$routes->get('/news',"Pages::news");
-$routes->get('/news/create',"Admin\AdminPanel::create");
-$routes->get('/news/update',"Admin\AdminPanel::update");
-$routes->get('/news/delete',"Admin\AdminPanel::delete");
 $routes->get('/Send',"Mailer::StartTrialSend");
+$routes->get('/news',"Pages::news");
 
-$routes->get('/admin',"Admin\AdminPanel::admin");
-$routes->get('/login',"Admin\Authentication::login");
-$routes->get('/logout','Admin\Authentication::logout');
+$routes->get('/news/admin/create',"Admin\NewsController::create");
+$routes->get('/news/admin/update',"Admin\NewsController::update");
+$routes->get('/news/admin/delete',"Admin\NewsController::delete");
 
-$routes->match(['get', 'post'], 'news/create', 'Admin\AdminPanel::create');
+$routes->get('/news/admin',"Admin\AdminPanel::admin");
+$routes->get('/news/admin/login',"Admin\Authentication::login");
+$routes->get('/news/admin/logout','Admin\Authentication::logout');
+
+$routes->match(['get', 'post'], 'news/create', 'Admin\NewsController::create');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], 'news/update', 'Admin\AdminPanel::update');
+$routes->match(['get', 'post'], 'news/update', 'Admin\NewsController::update');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
-$routes->match(['get', 'post'], 'news/delete', 'Admin\AdminPanel::delete');
+$routes->match(['get', 'post'], 'news/delete', 'Admin\NewsController::delete');
 $routes->get('news/(:segment)', 'News::view/$1');
 $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');

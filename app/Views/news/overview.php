@@ -1,3 +1,5 @@
+<?= $this->extend('pages/defaultlayout') ?>
+<?= $this->section('content') ?>
 <h2>News</h2>
 <br>
 <div class="container">
@@ -31,4 +33,5 @@
         </div>
     </div>
   </div>
-</div> 
+</div>
+<?= $this->endSection() ?>

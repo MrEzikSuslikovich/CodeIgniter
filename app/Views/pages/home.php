@@ -1,3 +1,5 @@
+<?= $this->extend('pages/defaultlayout') ?>
+<?= $this->section('content') ?>
 <main class="main">  
 		<section class="bg position-relative ">
 			<div class="container-xl">
@@ -95,3 +97,4 @@
 		    		</div>
 		    	</div>
 	    	</section>
+			<?= $this->endSection() ?>

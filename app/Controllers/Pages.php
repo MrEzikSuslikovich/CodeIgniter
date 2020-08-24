@@ -12,10 +12,7 @@ use App\Models\NewsModel;
         helper(['form', 'url']);
         $validation =  \Config\Services::validation();
         $data['title'] = ucfirst($page);
-        echo view('templates/header', $data);
         echo view('pages/'.$page, $data); 
-        echo view('templates/footer', $data);
-        echo view('module/StartTrial');
         }
         public function news()
         {
@@ -24,9 +21,6 @@ use App\Models\NewsModel;
             'news'  => $model->paginate(4,'group1'),
             'pager' => $model->pager,
         ];
-        echo view('templates/header', $data);
         echo view('news/overview', $data);
-        echo view('templates/footer', $data);
-        echo view('module/StartTrial');
         }
     }  

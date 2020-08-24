@@ -7,7 +7,7 @@ $( document ).ready(function() {
                 "body"  :  $("#body"+$(this).val()).text(),
                 'content': $("#content"+$(this).val()).text()
             };
-            fullnews(data);
+            NewsControlFunction("/news/update",data);
 		}
     );
     $("#modal_confirm").click(
@@ -20,11 +20,13 @@ $( document ).ready(function() {
             var data = {
                 "id"    :   $(this).val()
             }
-            deleting(data);
+            NewsControlFunction("/news/delete",data);
     });
     $(".add").click(
         function(){
-            add();
+            var data = {
+            }
+            NewsControlFunction("/news/create",data);
     });
 });
 
@@ -48,42 +50,13 @@ function modalAjax(ajax_form, url) {
     	}
  	});
 }
-function fullnews(additional){
-    $.ajax({
-        url: "/news/update",
-        method:"POST",
-        dataType: "html",
-        data: additional,  
-        success: function(response){
-            $('#hole').html(response);
-        },
-        error: function(response){
-            $('#hole').html(response);
-        }
-    });
-}
 
-
-function deleting(id){
+function NewsControlFunction(url,data){
     $.ajax({
-        url:"/news/delete",
+        url: url,
         method:"POST",
         dataType:"html",
-        data: id,
-        success: function(response){
-            $('#hole').html(response);
-        },
-        error: function(response){
-            $('#hole').html(response);
-        }
-    });
-}
-
-function add(){
-    $.ajax({
-        url:"/news/create",
-        method:"POST",
-        dataType:"html",
+        data: data,
         success: function(response){
             $('#hole').html(response);
         },
