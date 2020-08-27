@@ -31,7 +31,7 @@ class NewsController extends AdminPanel{
         }
         else
         {
-            echo view('admin/create');
+            echo view('admin/form');
         }
     }
     public function update()
@@ -64,7 +64,7 @@ class NewsController extends AdminPanel{
         }
         else
         {
-            echo view('admin/update');
+            echo view('admin/form');
         }
     }
      public function delete()
@@ -82,5 +82,8 @@ class NewsController extends AdminPanel{
         {
             echo view('admin/delete');
         }
+    }
+    public function form(){
+        echo view('admin/form');
     }
 }

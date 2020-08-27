@@ -18,7 +18,10 @@ class AdminPanel extends Controller{
         'news'  => $model->paginate(4,'group1'),
         'pager' => $model->pager
         ];
-        echo view('admin/view', $data);
+        echo view('admin/elements/NewsEdit', $data);
+    }
+    public function dataedit(){
+        echo view('admin/elements/DataEdit');
     }
     public function test(){
         echo view('admin/test');

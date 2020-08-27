@@ -23,7 +23,7 @@ class Authentication extends Controller
             {
                 if($this->request->getPost('username') == $row['name'] && $this->request->getPost('password') == $row['password'] ){
                     $session->set('logged_in', "TRUE");
-                    return redirect()->to('http://localhost:8080/news/admin');
+                    return redirect()->to(base_url().'/admin/news');
                 }
             } 
             echo view("authentication/error");     
@@ -35,7 +35,7 @@ class Authentication extends Controller
     public function logout(){
         $session = session();
         $session->set('logged_in', "FALSE");
-        return redirect()->to('http://localhost:8080/news');
+        return redirect()->to(base_url().'/news');
     }
 
 }

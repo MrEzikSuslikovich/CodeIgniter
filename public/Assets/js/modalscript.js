@@ -1,13 +1,50 @@
 $( document ).ready(function() {
+
+    /*var date = new Date(),
+    day = date.getDay(),
+    h = date.getHours(),
+    time = 5000;                      
+    alert(day+" "+h);
+if(((day > 3 && h > 12) && (day <= 5  && h <= 17))){
+    alert("da");
+}else{
+    alert("net");
+}*/
+    var url=window.location.href;
+    $('.nav-link ').each(function() {  
+        if($(this).attr('href')==window.location.pathname){
+            $(this).addClass("active");
+        }
+        else{
+            $(this).removeClass('active');
+        }
+    });
+    if($("a.ml-1").not($("a.ml-1").hasClass("active"))){
+        $("a#1").addClass("active");
+    }
+    $('.ml-1').each(function() {  
+
+        if($(this).attr("id")==url[url.length -1]){
+            $(this).addClass("active");
+            $("a#1").removeClass('active');
+        } 
+
+    });
+    $("#pag"+url[url.length -1]).click(function(){
+        $(this).addClass("active");
+    });
+    var url="/news/form";
     $(".upd").click(
 		function(){
+
             var data = {
                 "id"    :   $(this).val(),
                 "title" : $("#title"+$(this).val()).text(),
                 "body"  :  $("#body"+$(this).val()).text(),
-                'content': $("#content"+$(this).val()).text()
+                'content': $("#customFile"+$(this).val()).val(),
+                "url" : "/news/update",
             };
-            NewsControlFunction("/news/update",data);
+            NewsControlFunction(url,data);
 		}
     );
     $("#modal_confirm").click(
@@ -25,8 +62,9 @@ $( document ).ready(function() {
     $(".add").click(
         function(){
             var data = {
+                "url":"/news/create",
             }
-            NewsControlFunction("/news/create",data);
+            NewsControlFunction(url,data);
     });
 });
 

@@ -132,3 +132,6 @@ nb-configuration.xml
 
 public/plugins/
 public/dist/
+public/build/
+public/docs/
+public/pages/
