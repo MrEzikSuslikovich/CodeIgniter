@@ -1,17 +1,6 @@
 $( document ).ready(function() {
-
-    /*var date = new Date(),
-    day = date.getDay(),
-    h = date.getHours(),
-    time = 5000;                      
-    alert(day+" "+h);
-if(((day > 3 && h > 12) && (day <= 5  && h <= 17))){
-    alert("da");
-}else{
-    alert("net");
-}*/
     var url=window.location.href;
-    $('.nav-link ').each(function() {  
+    $('a.nav-link').each(function() {  
         if($(this).attr('href')==window.location.pathname){
             $(this).addClass("active");
         }
@@ -25,10 +14,13 @@ if(((day > 3 && h > 12) && (day <= 5  && h <= 17))){
     $('.ml-1').each(function() {  
 
         if($(this).attr("id")==url[url.length -1]){
-            $(this).addClass("active");
             $("a#1").removeClass('active');
+            $(this).addClass("active");
         } 
 
+    });
+    $("#testa").click(function(){
+        alert('12');
     });
     $("#pag"+url[url.length -1]).click(function(){
         $(this).addClass("active");

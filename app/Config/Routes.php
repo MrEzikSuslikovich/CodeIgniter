@@ -45,6 +45,7 @@ $routes->get('/admin/news',"Admin\AdminPanel::admin");
 $routes->get('/news/admin/login',"Admin\Authentication::login");
 $routes->get('/news/admin/logout','Admin\Authentication::logout');
 $routes->get('/admin/data',"Admin\AdminPanel::dataedit");
+$routes->get('/admin/test',"Admin\AdminPanel::test");
 
 $routes->match(['get', 'post'], 'news/create', 'Admin\NewsController::create');
 $routes->get('news/(:segment)', 'News::view/$1');

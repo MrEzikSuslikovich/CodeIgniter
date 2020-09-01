@@ -79,10 +79,6 @@
             <!-- /.card -->
           </div>
           <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
       </div>

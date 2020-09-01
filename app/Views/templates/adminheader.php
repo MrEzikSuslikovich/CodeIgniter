@@ -15,18 +15,9 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  
-  <link rel="stylesheet" media="screen and (max-width: 600px)" href="/Assets/css/mobile.css"/>
-
-  <link rel="stylesheet" media="screen and (min-width: 600px)" href="/Assets/css/computer.css"/>
-
-  <link rel="stylesheet" href="/Assets/css/style.css"/>
 
   <h2><?= esc($title); ?></h2>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" media="screen and (max-width: 600px)" href="/Assets/css/mobile.css"/>
-	<link rel="stylesheet" media="screen and (min-width: 600px)" href="/Assets/css/computer.css"/>
-	<link rel="stylesheet" href="/Assets/css/style.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <style type="text/css">
    textarea { 
     font-family: Verdana, Arial, Helvetica, sans-serif; 
@@ -63,7 +54,7 @@ to get the desired effect
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <form action="/news/admin/logout" method="">
-            <button type="submit"  class="btn   btn-success">Logout</button>
+            <button type="submit"  class="btn ">Logout</button>
         </form>
       </li>
   </nav>
@@ -95,7 +86,7 @@ to get the desired effect
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/news" id="testa" class="nav-link ">
+                <a href="/admin/news"  class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit news</p>
                 </a>
@@ -103,54 +94,38 @@ to get the desired effect
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/news" id="testa" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Edit news</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/data" id="testa" class="nav-link ">
+                <a href="/admin/data"  class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Gallery
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Dashboard
+                Charts
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview" style="display: block;">
+            <ul class="nav nav-treeview" style="display: none;">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a href="pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>ChartJS</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
+                <a href="pages/charts/flot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Flot</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="pages/charts/inline.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Inline</p>
                 </a>
               </li>
             </ul>

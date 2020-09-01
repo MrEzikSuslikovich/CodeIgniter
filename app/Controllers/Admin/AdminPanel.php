@@ -24,6 +24,6 @@ class AdminPanel extends Controller{
         echo view('admin/elements/DataEdit');
     }
     public function test(){
-        echo view('admin/test');
+        echo view('admin/elements/check');
     }
 }
