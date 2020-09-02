@@ -19,9 +19,6 @@ $( document ).ready(function() {
         } 
 
     });
-    $("#testa").click(function(){
-        alert('12');
-    });
     $("#pag"+url[url.length -1]).click(function(){
         $(this).addClass("active");
     });
@@ -58,6 +55,13 @@ $( document ).ready(function() {
             }
             NewsControlFunction(url,data);
     });
+    $(".create").click(
+        function(){
+            var data = {
+                "url":"/admin/news2",
+            }
+            summernotecreate(url,data);
+    });
 });
 
 function modalAjax(ajax_form, url) {
@@ -81,7 +85,22 @@ function modalAjax(ajax_form, url) {
  	});
 }
 
+
 function NewsControlFunction(url,data){
+    $.ajax({
+        url: url,
+        method:"POST",
+        dataType:"html",
+        data: data,
+        success: function(response){
+            $('#hole').html(response);
+        },
+        error: function(response){
+            $('#hole').html(response);
+        }
+    });
+}
+function summernotecreate(url,data){
     $.ajax({
         url: url,
         method:"POST",

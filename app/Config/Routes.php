@@ -39,6 +39,7 @@ $routes->get('/news',"Pages::news");
 $routes->get('/news/admin/create',"Admin\NewsController::create");
 $routes->get('/news/admin/update',"Admin\NewsController::update");
 $routes->get('/news/admin/delete',"Admin\NewsController::delete");
+$routes->get('/admin/news2',"Admin\NewsController::editortest");
 $routes->get('/news/admin/form',"Admin\NewsController::form");
 
 $routes->get('/admin/news',"Admin\AdminPanel::admin");
@@ -46,6 +47,7 @@ $routes->get('/news/admin/login',"Admin\Authentication::login");
 $routes->get('/news/admin/logout','Admin\Authentication::logout');
 $routes->get('/admin/data',"Admin\AdminPanel::dataedit");
 $routes->get('/admin/test',"Admin\AdminPanel::test");
+
 
 $routes->match(['get', 'post'], 'news/create', 'Admin\NewsController::create');
 $routes->get('news/(:segment)', 'News::view/$1');
@@ -68,6 +70,12 @@ $routes->get('news', 'News::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
 $routes->match(['get', 'post'], '/login', 'Admin\Authentication::login');
+$routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
+$routes->get('authentication', 'Authentication::index');
+$routes->get('(:any)', 'Pages::view/$1');
+
+
+$routes->match(['get', 'post'], '/admin/news2', 'Admin\NewsController::editortest');
 $routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
 $routes->get('authentication', 'Authentication::index');
 $routes->get('(:any)', 'Pages::view/$1');

@@ -4,6 +4,7 @@
 use App\Models\NewsModel;
 use CodeIgniter\Controller;
 use App\Controllers\Admin\AdminPanel;
+use App\Models\Summernotetest;
 
 class NewsController extends AdminPanel{
     public function create()
@@ -85,5 +86,25 @@ class NewsController extends AdminPanel{
     }
     public function form(){
         echo view('admin/form');
+    }
+    public function editortest(){
+        $model = new Summernotetest();
+        if ($this->request->getMethod() === 'post' && $this->validate([
+            'title' => 'required|min_length[3]|max_length[255]',
+            'text'  => 'required'
+        ]))
+    {   
+        $model->save([
+            'title' => $this->request->getPost('title'),
+            'text'  => $this->request->getPost('text'),
+        ]);
+        echo view('admin/success');
+        echo($this->request->getPost('title'));
+        echo($this->request->getPost('text'));
+    }
+        else
+        {
+            echo view('admin/summernoteform');
+        }
     }
 }
