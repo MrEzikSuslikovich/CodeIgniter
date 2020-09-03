@@ -28,7 +28,7 @@
 							<a class="nav-link text-dark" href="#">Solutions</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link  text-dark" href="http://localhost:8080/news">Community</a>
+							<a class="nav-link  text-dark" href="/news">Community</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" href="#">Pricing</a>

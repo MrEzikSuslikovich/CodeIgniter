@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\NewsModel;
+use App\Models\Summernotetest;
     class Pages extends Controller {
     public function showme($page = 'home')
     {
@@ -13,14 +14,22 @@ use App\Models\NewsModel;
         $validation =  \Config\Services::validation();
         $data['title'] = ucfirst($page);
         echo view('pages/'.$page, $data); 
-        }
-        public function news()
-        {
+    }
+    public function news()
+    {
         $model = new NewsModel();
         $data = [
             'news'  => $model->paginate(4,'group1'),
             'pager' => $model->pager,
         ];
         echo view('news/overview', $data);
-        }
+    }
+    public function summernotenews(){
+        $model = new Summernotetest();
+        $data = [
+            'news' => $model->paginate(4,'group1'),
+            'pager'=> $model->pager,
+        ];
+        echo view('news/summernews',$data);
+    }
     }  

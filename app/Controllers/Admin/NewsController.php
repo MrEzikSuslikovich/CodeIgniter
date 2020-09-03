@@ -88,7 +88,8 @@ class NewsController extends AdminPanel{
         echo view('admin/form');
     }
     public function editortest(){
-        $model = new Summernotetest();
+
+    $model = new Summernotetest();
         if ($this->request->getMethod() === 'post' && $this->validate([
             'title' => 'required|min_length[3]|max_length[255]',
             'text'  => 'required'
@@ -99,8 +100,6 @@ class NewsController extends AdminPanel{
             'text'  => $this->request->getPost('text'),
         ]);
         echo view('admin/success');
-        echo($this->request->getPost('title'));
-        echo($this->request->getPost('text'));
     }
         else
         {

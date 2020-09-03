@@ -111,6 +111,7 @@ var save = function() {
             </div>
           </div>
           <div class="card-footer">
+          <p>click2edit <img style="width: 200px;" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE3M2ZhOTQ0YWYwIHRleHQgeyBmaWxsOnJnYmEoMjU1LDI1NSwyNTUsLjc1KTtmb250LXdlaWdodDpub3JtYWw7Zm9udC1mYW1pbHk6SGVsdmV0aWNhLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE3M2ZhOTQ0YWYwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzc3NyI+PC9yZWN0PjxnPjx0ZXh0IHg9Ijc0LjM5MDYyNSIgeT0iMTA0LjUiPjIwMHgyMDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-filename="vor.svg"></p>
         </div>
         <!-- /.col-->
       </div>

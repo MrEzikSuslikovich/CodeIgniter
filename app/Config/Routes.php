@@ -35,6 +35,7 @@ $routes->get('/index/form', 'Form::index');
 
 $routes->get('/Send',"Mailer::StartTrialSend");
 $routes->get('/news',"Pages::news");
+$routes->get('/news2',"Pages::summernotenews");
 
 $routes->get('/news/admin/create',"Admin\NewsController::create");
 $routes->get('/news/admin/update',"Admin\NewsController::update");

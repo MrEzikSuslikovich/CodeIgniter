@@ -1,7 +1,5 @@
 <?= $this->extend('admin/adminlayout') ?>
 <?= $this->section('content') ?>
-<div name="hole">
-</div>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -19,7 +17,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -48,55 +45,46 @@
                 <div class="card-body">
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Title</label>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" id="title" name="title" rows="5"><?= $_POST['title']; ?></textarea>
+                    <div class="col-sm-11">
+                        <textarea class="form-control" id="title" name="title" rows="5"></textarea>
+                        <textarea class="form-control" style="display:none;"  id="text" name="text" rows="5"></textarea>
                     </div>
                   </div>
                   <div class="form-group row">
                   <label for="inputPassword3" class="col-sm-2 col-form-label">Text</label>
-                  <div class="col-sm-10">
-                  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                  <div class="col-sm-11">
+                      <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+                      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                          <div class="click2edit">Text</div>
+                          <button id="edit" class="btn btn-primary" type="button">Edit</button>
+                      <button id="save" class="btn btn-primary" type="button">Save</button> 
                     </div>
                   </div>
                 </div>
-                                </form>
-                <div class="click2edit" name='text'>click2edit</div>
-                    <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit 1</button>
-<button id="save" class="btn btn-primary" onclick="save()" type="button">Save 2</button>
-                <button id="send_form" class="btn btn-success">Submit</button>           
-
                 <!-- /.card-body -->
-
+                </form>
               <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
 <script>
-        $("#send_form").click(function(){
-            var data ={
-            "title": $("#title").val(),
-            "text":$('.click2edit').summernote('code'),
-        }
-        alert(data['title']);
-        alert(data['text']);
-        summernotecreate("/admin/news2",data);
-    });
-     
-    function edit() {
-  $('.click2edit').summernote({focus: true});
-};
- function save() {
   var markup = $('.click2edit').summernote('code');
-  alert(markup);
+  $('.click2edit').summernote('destroy');
+$("#text").html(markup);
+$("#edit").click(function(){
+  $('.click2edit').summernote({focus: true});
+});
+$("#save").click(function(){
+
+  $("#text").html($('.click2edit').summernote('code'));
   $('.click2edit').summernote('code');
   $('.click2edit').summernote('destroy');
-};
+});
     </script>
                     <div class="card-footer">
-                         
+                    <button type="submit"  id="send_form" class="btn btn-success">Submit</button>         
+                    <?= \Config\Services::validation()->listErrors(); ?>
                 </div>
                 <!-- /.card-footer -->
 
@@ -130,6 +118,6 @@
     $('.textarea').summernote()
   })
 </script>
-<?= \Config\Services::validation()->listErrors(); ?>
+
 <?= csrf_field() ?>
 <?= $this->endSection() ?>
