@@ -87,7 +87,7 @@ class NewsController extends AdminPanel{
     public function form(){
         echo view('admin/form');
     }
-    public function editortest(){
+    public function summeradd(){
 
     $model = new Summernotetest();
         if ($this->request->getMethod() === 'post' && $this->validate([
@@ -106,4 +106,52 @@ class NewsController extends AdminPanel{
             echo view('admin/summernoteform');
         }
     }
+    public function summerupdate(){
+
+        $model = new Summernotetest();
+            if ($this->request->getMethod() === 'post' && $this->validate([
+                'id' =>'required',
+                'title' => 'required|min_length[3]|max_length[255]',
+                'text'  => 'required'
+            ]))
+        {   
+            $data = [
+                'title' => $this->request->getPost('title'),
+                'text'  => $this->request->getPost('text'),
+            ];
+            $id=$this->request->getPost('id');
+            $model->where('id', $id);
+            $model->update(['id' => $id],$data);    
+            echo view('admin/success');
+        }
+            else
+            {
+                $data = [
+                    'news'  => $model->paginate($_GET['id'],'group1'),
+                    'pager' => $model->pager
+                    ];
+                echo view('news2el/update', $data);
+            }
+        }
+
+        public function summerdelete(){
+            $model = new Summernotetest();
+            if ($this->request->getMethod() === 'post' && $this->validate([
+                'id' =>'required',
+            ]))
+            {
+                $id=$this->request->getPost('id');
+                $model->delete(['id' => $id]);
+                echo view('admin/success');
+    
+            }
+            else
+            {
+                $data = [
+                    'news'  => $model->paginate($_GET['id'],'group1'),
+                    'pager' => $model->pager
+                    ];
+                echo view('news2el/delete', $data);
+            }
+            }
 }

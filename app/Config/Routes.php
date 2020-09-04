@@ -40,7 +40,10 @@ $routes->get('/news2',"Pages::summernotenews");
 $routes->get('/news/admin/create',"Admin\NewsController::create");
 $routes->get('/news/admin/update',"Admin\NewsController::update");
 $routes->get('/news/admin/delete',"Admin\NewsController::delete");
-$routes->get('/admin/news2',"Admin\NewsController::editortest");
+$routes->get('/admin/news2',"Admin\AdminPanel::news2admin");
+$routes->get('/admin/news2/create',"Admin\NewsController::summeradd");
+$routes->get('/admin/news2/update', 'Admin\NewsController::summerupdate');
+$routes->get('/admin/news2/delete', 'Admin\NewsController::summerdelete');
 $routes->get('/news/admin/form',"Admin\NewsController::form");
 
 $routes->get('/admin/news',"Admin\AdminPanel::admin");
@@ -76,11 +79,20 @@ $routes->get('authentication', 'Authentication::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
 
-$routes->match(['get', 'post'], '/admin/news2', 'Admin\NewsController::editortest');
+$routes->match(['get', 'post'], '/admin/news2/create', 'Admin\NewsController::summeradd');
 $routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
 $routes->get('authentication', 'Authentication::index');
 $routes->get('(:any)', 'Pages::view/$1');
 
+$routes->match(['get', 'post'], '/admin/news2/update', 'Admin\NewsController::summerupdate');
+$routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
+$routes->get('authentication', 'Authentication::index');
+$routes->get('(:any)', 'Pages::view/$1');
+
+$routes->match(['get', 'post'], '/admin/news2/delete', 'Admin\NewsController::summerdelete');
+$routes->get('authentication/(:segment)', 'Admin\Authentication::view/$1');
+$routes->get('authentication', 'Authentication::index');
+$routes->get('(:any)', 'Pages::view/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

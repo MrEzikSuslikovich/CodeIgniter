@@ -25,7 +25,6 @@ $( document ).ready(function() {
     var url="/news/form";
     $(".upd").click(
 		function(){
-
             var data = {
                 "id"    :   $(this).val(),
                 "title" : $("#title"+$(this).val()).text(),

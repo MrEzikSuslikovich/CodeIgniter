@@ -11,7 +11,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Text Editors</li>
+              <li class="breadcrumb-item active">Text Editors <?php echo($_GET['id']); ?></li>
             </ol>
           </div>
         </div>
@@ -41,12 +41,16 @@
             <!-- /.card-header -->
             <div class="card-body pad">
                 <!-- /.card-body -->
-                <form action="/admin/news2/create" name="ajax_form" id="ajax_form" method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
+                <?php if (! empty($news) && is_array($news)) : ?>
+                <?php foreach ($news as $news_item): ?>
+                <?php if(esc($news_item['id']==$_GET['id'])) : ?>
+                <form action="/admin/news2/update" name="ajax_form" id="ajax_form" method="post" accept-charset="utf-8" enctype="multipart/form-data" class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-11">
-                        <textarea class="form-control" id="title" name="title" rows="5"></textarea>
+                    <textarea class="form-control" id="id" style="display:none;" name="id" rows="5"><?= $_GET['id']; ?></textarea>
+                        <textarea class="form-control" id="title" name="title" rows="5"><?= esc($news_item['title']); ?></textarea>
                         <textarea class="form-control" style="display:none;"  id="text" name="text" rows="5"></textarea>
                     </div>
                   </div>
@@ -58,15 +62,20 @@
                       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
                           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
                           <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-                          <div class="textarea">Text</div>
+    <div class="textarea"><?php echo html_entity_decode(esc($news_item['text'])); ?></div>
                     </div>
                   </div>
                 </div>
+                <?php endif ?>
+                <?php endforeach; ?>
+                <?php else : ?>
+                    <h1>Wrong id</h1>
+                <?php endif ?>
                 <!-- /.card-body -->
 
               <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
-              <script>
+<script>
     // Summernote
     $('.textarea').summernote();
     var markup = $('.textarea').summernote('code');
@@ -109,12 +118,6 @@ $("div").focusout(function(){
 <script src="/dist/js/demo.js"></script>
 <!-- Summernote -->
 <script src="/plugins/summernote/summernote-bs4.min.js"></script>
-<script>
-  $(function () {
-    // Summernote
-    $('.textarea').summernote()
-  })
-</script>
 
 <?= csrf_field() ?>
 <?= $this->endSection() ?>
