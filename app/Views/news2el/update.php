@@ -72,7 +72,6 @@
                     <h1>Wrong id</h1>
                 <?php endif ?>
                 <!-- /.card-body -->
-
               <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
 <script>

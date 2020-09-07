@@ -2,42 +2,30 @@
 <?= $this->section('content') ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Text Editors</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Text Editors</li>
-            </ol>
-          </div>
-        </div>
+            <h1 class="m-0 text-dark">News Control</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    <!-- /.content-header -->
+
     <!-- Main content -->
+    <div id="hole" class="p-3">
+    <div class="content">
+      <div class="container-fluid">
+              <!-- /.card-header -->
+
     <section class="content">
       <div class="row">
         <div class="col-md-12">
           <div class="card card-outline card-info">
-            <div class="card-header">
-              <h3 class="card-title">
-                Bootstrap WYSIHTML5
-                <small>Simple and fast</small>
-              </h3>
-              <!-- tools box -->
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
-                        title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-                <button type="button" class="btn btn-tool btn-sm" data-card-widget="remove" data-toggle="tooltip"
-                        title="Remove">
-                  <i class="fas fa-times"></i></button>
+          <div class="card-header">
+                <h3 class="card-title">Edit</h3>
               </div>
-              <!-- /. tools -->
-            </div>
             <!-- /.card-header -->
             <div class="card-body pad">
                 <!-- /.card-body -->
@@ -63,37 +51,36 @@
                   </div>
                 </div>
                 <!-- /.card-body -->
-
               <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
               <script>
-    // Summernote
-    $('.textarea').summernote();
-    var markup = $('.textarea').summernote('code');
-    $('.textarea').summernote('destroy');
-    $("#text").html(markup);
-$("div").focusout(function(){
-    var markup = $('.textarea').summernote('code');
-    $("#text").html(markup);
-});
-
-    </script>
-                    <div class="card-footer">
+              // Summernote
+              $('.textarea').summernote();
+              var markup = $('.textarea').summernote('code');
+              $('.textarea').summernote('destroy');
+              $("#text").html(markup);
+              $("div").focusout(function(){
+                  var markup = $('.textarea').summernote('code');
+                  $("#text").html(markup);
+              });
+              </script>
+              <div class="card-footer">
                     <button type="submit"  id="send_form" class="btn btn-success">Submit</button>         
                     </form>
                     <?= \Config\Services::validation()->listErrors(); ?>
-                </div>
-                <!-- /.card-footer -->
-
+              </div>
+              <!-- /.card-footer -->
             </div>
           </div>
-          <div class="card-footer">
-        </div>
         <!-- /.col-->
       </div>
       <!-- ./row -->
     </section>
+
+      <!-- /.container-fluid -->
+    </div>
     <!-- /.content -->
+  </div>
+  </div>
   </div>
   <!-- /.content-wrapper -->
   <!-- /.control-sidebar -->

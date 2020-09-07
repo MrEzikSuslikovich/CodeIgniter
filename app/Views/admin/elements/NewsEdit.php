@@ -15,6 +15,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+    <div id="hole" class="p-3">
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -31,7 +32,7 @@
                 </div>
               </div>
               <!-- /.card-header -->
-              <div id="hole">
+
               <div class="card-body d-flex align-content-center flex-wrap">
                   <table class="table">
                     <thead>
